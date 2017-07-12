@@ -3,11 +3,9 @@ require "dotenv"
 require "capybara/rspec"
 require "parallel_tests"
 require "rspec/retry"
+require_relative "helpers/drop_in_helper"
 
 Dotenv.load
-
-HOSTNAME = `hostname`.chomp
-PORT = ENV["PORT"] || 4567
 
 Capybara.default_driver = :selenium
 Capybara.app_host = "https://#{HOSTNAME}:#{PORT}"

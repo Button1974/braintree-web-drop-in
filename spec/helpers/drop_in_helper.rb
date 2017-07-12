@@ -1,4 +1,12 @@
 module DropIn
+  def HOSTNAME
+    `hostname`.chomp
+  end
+
+  def PORT
+    ENV["PORT"] || 4567
+  end
+
   def click_option(option_type)
     find(".braintree-option__#{option_type} .braintree-option__label").click
   end
